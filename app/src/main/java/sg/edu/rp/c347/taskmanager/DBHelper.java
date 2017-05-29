@@ -56,7 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Task> getAllTasks() {
-        ArrayList<Task> songs = new ArrayList<Task>();
+        ArrayList<Task> tasks = new ArrayList<Task>();
 
         String selectQuery = "SELECT " + COLUMN_ID + ","
                 + COLUMN_NAME + "," + COLUMN_DESCRIPTION +  " FROM " + TABLE_TASK;
@@ -70,12 +70,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 String description = cursor.getString(2);
 
                 Task task1 = new Task(id, name, description);
-                songs.add(task1);
+                tasks.add(task1);
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
-        return songs;
+        return tasks;
     }
 
 //    public int updateSong(Song data){
